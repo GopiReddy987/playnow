@@ -1,0 +1,72 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a routerLink="/" class="brand-link">
+        <img src="/assets/images/avatars/playnowlogo.png" alt="PlayNow Logo" class="brand-logo" />
+        <span class="brand-text">PlayNow</span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" [class.active]="isMenuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+        Home
+      </a>
+      <a routerLink="/sports" routerLinkActive="active" class="nav-link">
+        Sports
+      </a>
+      <a routerLink="/join-game" routerLinkActive="active" class="nav-link">
+        🔥 Join Game
+      </a>
+      <a routerLink="/booking" routerLinkActive="active" class="nav-link">
+        Book Turf
+      </a>
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+        Dashboard
+      </a>
+    </div>
+
+    <div class="navbar-actions">
+      <!-- User Profile (when logged in) -->
+      <div class="user-profile" *ngIf="authService.isAuthenticated()">
+        <div class="user-info" (click)="toggleUserMenu()">
+          <img 
+            [src]="authService.currentUser()?.avatar || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face'" 
+            [alt]="authService.currentUser()?.name"
+            class="user-avatar"
+          >
+          <span class="user-name">{{ authService.currentUser()?.name }}</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        
+        <div class="user-menu" [class.active]="isUserMenuOpen()">
+          <div class="menu-item" (click)="goToProfile()">
+            👤 Profile
+          </div>
+          <div class="menu-item" (click)="goToSettings()">
+            ⚙️ Settings
+          </div>
+          <div class="menu-divider"></div>
+          <div class="menu-item logout" (click)="logout()">
+            🚪 Logout
+          </div>
+        </div>
+      </div>
+
+      <!-- Login/Register buttons (when not logged in) -->
+      <div class="auth-buttons" *ngIf="!authService.isAuthenticated()">
+        <button class="btn btn-secondary" (click)="goToLogin()">
+          Login
+        </button>
+        <button class="btn btn-primary" (click)="goToRegister()">
+          Sign Up
+        </button>
+      </div>
+
+      <button class="mobile-menu-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav> 

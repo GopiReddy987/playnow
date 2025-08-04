@@ -1,0 +1,397 @@
+<div class="join-game-container">
+  <!-- Header Section -->
+  <header class="join-header">
+    <div class="header-content">
+      <h1>🔥 Join a Game</h1>
+      <p>Find open matches or post requests for players</p>
+    </div>
+  </header>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading()" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading matches...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error() && !isLoading()" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>Oops! Something went wrong</h3>
+    <p>{{ error() }}</p>
+    <button class="btn btn-primary" (click)="retryLoad()">
+      Try Again
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div *ngIf="!isLoading() && !error()">
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'matches'"
+        (click)="setActiveTab('matches')">
+        🏟️ Open Matches
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'requests'"
+        (click)="setActiveTab('requests')">
+        👥 Player Requests
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'create'"
+        (click)="setActiveTab('create')">
+        ➕ Create Match
+      </button>
+    </div>
+
+    <!-- Filter/Search Section -->
+    <div class="filter-row">
+      <input class="filter-input" type="text" placeholder="Search matches..." [(ngModel)]="searchQuery">
+      <select class="filter-input" [(ngModel)]="selectedSport">
+        <option value="">All Sports</option>
+        <option value="Football">Football</option>
+        <option value="Cricket">Cricket</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Tennis">Tennis</option>
+        <option value="Badminton">Badminton</option>
+      </select>
+      <select class="filter-input" [(ngModel)]="selectedDate">
+        <option value="">Any Date</option>
+        <option value="today">Today</option>
+        <option value="tomorrow">Tomorrow</option>
+        <option value="weekend">This Weekend</option>
+      </select>
+      <select class="filter-input" [(ngModel)]="selectedSkill">
+        <option value="">Any Skill</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+
+    <!-- Match Cards Grid -->
+    <div class="match-grid">
+      <div *ngFor="let match of filteredMatches()" class="match-card">
+        <span class="status-badge" *ngIf="match.status === 'Open'">Open</span>
+        <h2 class="match-title">{{ match.title }}</h2>
+        <div class="match-detail-row">
+          <span class="match-label">Sport:</span>
+          <span class="match-value">{{ match.sport }}</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Date:</span>
+          <span class="match-value">{{ formatDate(match.date) }}</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Time:</span>
+          <span class="match-value">{{ match.time }}</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Venue:</span>
+          <span class="match-value">{{ match.turf.name }}, {{ match.turf.location }}</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Host:</span>
+          <span class="match-value">{{ match.host.name }} ⭐{{ match.host.rating }}</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Price:</span>
+          <span class="match-value">₹{{ match.pricePerPlayer }}/player</span>
+        </div>
+        <div class="match-detail-row">
+          <span class="match-label">Players:</span>
+          <span class="match-value">{{ match.playersJoined }}/{{ match.maxPlayers }}</span>
+        </div>
+        <div class="btn-group">
+          <button 
+            *ngIf="match.status === 'Open'"
+            class="btn-join" 
+            (click)="joinMatch(match)">
+            Join Match
+          </button>
+          <button 
+            class="btn-details" 
+            (click)="viewMatchDetails(match)">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="filteredMatches().length === 0" class="no-matches">
+      <p>No matches found. Try adjusting your filters or create a new match!</p>
+    </div>
+
+    <!-- Player Requests Tab -->
+    <div *ngIf="activeTab() === 'requests'" class="requests-section">
+      <div class="requests-grid">
+        <div *ngFor="let request of filteredRequests()" class="request-card">
+          <div class="request-header">
+            <h3>{{ request.teamName }}</h3>
+            <span class="status-badge" [class]="request.status.toLowerCase()">
+              {{ request.status }}
+            </span>
+          </div>
+          
+          <div class="request-details">
+            <div class="detail-row">
+              <span class="label">Sport:</span>
+              <span class="value">{{ request.sport }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Date:</span>
+              <span class="value">{{ formatDate(request.date) }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Time:</span>
+              <span class="value">{{ request.time }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Venue:</span>
+              <span class="value">{{ request.turf }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Players Needed:</span>
+              <span class="value">{{ request.playersNeeded }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Skill Level:</span>
+              <span class="value">{{ request.skillLevel }}</span>
+            </div>
+          </div>
+          
+          <p class="request-description">{{ request.description }}</p>
+          
+          <div class="request-actions">
+            <button class="btn btn-primary" (click)="contactTeam(request)">
+              Contact Team
+            </button>
+            <button class="btn btn-secondary" (click)="viewRequestDetails(request)">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="filteredRequests().length === 0" class="no-requests">
+        <p>No player requests found.</p>
+      </div>
+    </div>
+
+    <!-- Create Match Tab -->
+    <div *ngIf="activeTab() === 'create'" class="create-match-section">
+      <form (ngSubmit)="createMatch()" class="create-match-form">
+        <div class="form-group">
+          <label for="title">Match Title *</label>
+          <input 
+            type="text" 
+            id="title" 
+            [(ngModel)]="newMatch.title" 
+            name="title" 
+            required 
+            placeholder="e.g., Weekend Football 5v5"
+          />
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sport">Sport *</label>
+            <select id="sport" [(ngModel)]="newMatch.sport" name="sport" required>
+              <option value="">Select Sport</option>
+              <option value="Football">Football</option>
+              <option value="Cricket">Cricket</option>
+              <option value="Basketball">Basketball</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Badminton">Badminton</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="matchType">Match Type</label>
+            <select id="matchType" [(ngModel)]="newMatch.matchType" name="matchType">
+              <option value="5v5">5v5</option>
+              <option value="7v7">7v7</option>
+              <option value="11v11">11v11</option>
+              <option value="Singles">Singles</option>
+              <option value="Doubles">Doubles</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date *</label>
+            <input 
+              type="date" 
+              id="date" 
+              [(ngModel)]="newMatch.date" 
+              name="date" 
+              [min]="today" 
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="time">Time *</label>
+            <input 
+              type="time" 
+              id="time" 
+              [(ngModel)]="newMatch.time" 
+              name="time" 
+              required
+            />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="duration">Duration</label>
+            <select id="duration" [(ngModel)]="newMatch.duration" name="duration">
+              <option value="1 hour">1 hour</option>
+              <option value="2 hours">2 hours</option>
+              <option value="3 hours">3 hours</option>
+              <option value="4 hours">4 hours</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="maxPlayers">Max Players</label>
+            <input 
+              type="number" 
+              id="maxPlayers" 
+              [(ngModel)]="newMatch.maxPlayers" 
+              name="maxPlayers" 
+              min="2" 
+              max="22"
+            />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricePerPlayer">Price per Player (₹)</label>
+            <input 
+              type="number" 
+              id="pricePerPlayer" 
+              [(ngModel)]="newMatch.pricePerPlayer" 
+              name="pricePerPlayer" 
+              min="0"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="skillLevel">Skill Level</label>
+            <select id="skillLevel" [(ngModel)]="newMatch.skillLevel" name="skillLevel">
+              <option value="Any">Any</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea 
+            id="description" 
+            [(ngModel)]="newMatch.description" 
+            name="description" 
+            rows="3" 
+            placeholder="Describe your match, any special requirements, etc."
+          ></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="hostPhone">Your Phone Number (for WhatsApp notifications)</label>
+          <input 
+            type="tel" 
+            id="hostPhone" 
+            [(ngModel)]="newMatch.hostPhone" 
+            name="hostPhone" 
+            placeholder="+91 98765 43210"
+          />
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" [disabled]="isLoading()">
+            {{ isLoading() ? 'Creating...' : 'Create Match' }}
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="shareMatchCreation()">
+            Share Preview
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Match Details Modal -->
+  <div *ngIf="showMatchModal() && selectedMatch()" class="modal-overlay" (click)="closeMatchModal()">
+    <div class="modal-content match-modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title">{{ selectedMatch()?.title }}</h2>
+        <button class="close-btn" (click)="closeMatchModal()">✕</button>
+      </div>
+      <div class="modal-divider"></div>
+      <div class="modal-body">
+        <div class="details-grid">
+          <div>
+            <div class="detail-label">Sport:</div>
+            <div class="detail-value">{{ selectedMatch()?.sport }}</div>
+          </div>
+          <div>
+            <div class="detail-label">Time:</div>
+            <div class="detail-value">{{ selectedMatch()?.time }}</div>
+          </div>
+          <div>
+            <div class="detail-label">Price:</div>
+            <div class="detail-value">₹{{ selectedMatch()?.pricePerPlayer }}/player</div>
+          </div>
+          <div>
+            <div class="detail-label">Venue:</div>
+            <div class="detail-value">{{ selectedMatch()?.turf?.name }}<br>{{ selectedMatch()?.turf?.location }}</div>
+          </div>
+          <div>
+            <div class="detail-label">Duration:</div>
+            <div class="detail-value">{{ selectedMatch()?.duration }}</div>
+          </div>
+          <div>
+            <div class="detail-label">Host:</div>
+            <div class="detail-value">
+              <span>{{ selectedMatch()?.host?.name }}</span>
+              <span class="host-rating"><span class="star">★</span> {{ selectedMatch()?.host?.rating }}</span>
+            </div>
+          </div>
+          <div>
+            <div class="detail-label">Skill Level:</div>
+            <div class="detail-value">{{ selectedMatch()?.skillLevel }}</div>
+          </div>
+        </div>
+        <div class="modal-divider"></div>
+        <div class="player-spots-section">
+          <div class="player-spots-title">Player Spots</div>
+          <div class="player-spots-grid">
+            <ng-container *ngFor="let spot of getSpotsArray(selectedMatch()?.maxPlayers || 0); let i = index; trackBy: trackByIndex">
+              <ng-container *ngIf="i < (selectedMatch()?.playersJoined || 0); else availableSpot">
+                <div class="player-chip" [ngClass]="['chip-color-' + (i % 3)]">
+                  <span class="player-avatar">{{ getPlayerInitial(i) }}</span>
+                  <span class="player-name">{{ getPlayerName(i) }}</span>
+                </div>
+              </ng-container>
+              <ng-template #availableSpot>
+                <div class="player-chip available">Available</div>
+              </ng-template>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="selectedMatch()?.status === 'Open'" class="btn btn-primary join-btn" (click)="joinMatch(selectedMatch()!)">
+          Join Match
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

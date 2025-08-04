@@ -1,0 +1,262 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\migrations\\20250701062841_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\migrations\\20250701062841_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\dtos\\turfdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\dtos\\turfdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\dtos\\bookingdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\dtos\\bookingdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\data\\applicationdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\data\\applicationdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\controllers\\turfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\controllers\\turfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\controllers\\playerrequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\controllers\\playerrequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\controllers\\matchescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\controllers\\matchescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|c:\\users\\gopir\\onedrive\\desktop\\playnow.website.in\\playnow\\playnow-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FA273AB3-CA45-3B95-9077-30428E740FB8}|playnow-backend\\PlayNow.API.csproj|solutionrelative:playnow-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Services\\AuthService.cs",
+              "RelativeToolTip": "playnow-backend\\Services\\AuthService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:56.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Services\\BookingService.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Services\\BookingService.cs",
+              "RelativeToolTip": "playnow-backend\\Services\\BookingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:55.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20250701062841_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Migrations\\20250701062841_InitialCreate.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Migrations\\20250701062841_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Migrations\\20250701062841_InitialCreate.cs",
+              "RelativeToolTip": "playnow-backend\\Migrations\\20250701062841_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:49.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TurfDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\TurfDTOs.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\DTOs\\TurfDTOs.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\TurfDTOs.cs",
+              "RelativeToolTip": "playnow-backend\\DTOs\\TurfDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:43.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\AuthDTOs.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\DTOs\\AuthDTOs.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\AuthDTOs.cs",
+              "RelativeToolTip": "playnow-backend\\DTOs\\AuthDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:40.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Data\\ApplicationDbContextFactory.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Data\\ApplicationDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Data\\ApplicationDbContextFactory.cs",
+              "RelativeToolTip": "playnow-backend\\Data\\ApplicationDbContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:37.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "playnow-backend\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:35.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TurfController.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\TurfController.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Controllers\\TurfController.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\TurfController.cs",
+              "RelativeToolTip": "playnow-backend\\Controllers\\TurfController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:33.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\BookingDTOs.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\DTOs\\BookingDTOs.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\DTOs\\BookingDTOs.cs",
+              "RelativeToolTip": "playnow-backend\\DTOs\\BookingDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:16:34.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerRequestsController.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\PlayerRequestsController.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Controllers\\PlayerRequestsController.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\PlayerRequestsController.cs",
+              "RelativeToolTip": "playnow-backend\\Controllers\\PlayerRequestsController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:23.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MatchesController.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\MatchesController.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Controllers\\MatchesController.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\MatchesController.cs",
+              "RelativeToolTip": "playnow-backend\\Controllers\\MatchesController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:23:15.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\appsettings.json",
+              "RelativeDocumentMoniker": "playnow-backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\appsettings.json",
+              "RelativeToolTip": "playnow-backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-01T03:42:37.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "playnow-backend\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T03:33:55.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "playnow-backend\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\gopir\\OneDrive\\Desktop\\Playnow.website.in\\playnow\\playnow-backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "playnow-backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T03:33:52.588Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

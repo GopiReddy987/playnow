@@ -1,0 +1,62 @@
+<div class="match-details-wrapper" *ngIf="!isLoading && match">
+  <div class="match-details-card">
+    <div class="details-header">
+      <h1 class="details-title">{{ match.title }}</h1>
+    </div>
+    <div class="details-divider"></div>
+    <div class="details-grid">
+      <div>
+        <div class="detail-label">Sport:</div>
+        <div class="detail-value">{{ match.sport }}</div>
+      </div>
+      <div>
+        <div class="detail-label">Time:</div>
+        <div class="detail-value">{{ match.time }}</div>
+      </div>
+      <div>
+        <div class="detail-label">Price:</div>
+        <div class="detail-value">₹{{ match.pricePerPlayer }}/player</div>
+      </div>
+      <div>
+        <div class="detail-label">Venue:</div>
+        <div class="detail-value">{{ match.turf?.name }}<br>{{ match.turf?.location }}</div>
+      </div>
+      <div>
+        <div class="detail-label">Duration:</div>
+        <div class="detail-value">{{ match.duration }}</div>
+      </div>
+      <div>
+        <div class="detail-label">Host:</div>
+        <div class="detail-value">
+          <span>{{ match.host?.name }}</span>
+          <span class="host-rating"><span class="star">★</span> {{ match.host?.rating }}</span>
+        </div>
+      </div>
+      <div>
+        <div class="detail-label">Skill Level:</div>
+        <div class="detail-value">{{ match.skillLevel }}</div>
+      </div>
+    </div>
+    <div class="details-divider"></div>
+    <div class="player-spots-section">
+      <div class="player-spots-title">Player Spots</div>
+      <div class="player-spots-grid">
+        <ng-container *ngFor="let spot of getSpotsArray(match.maxPlayers || 0); let i = index; trackBy: trackByIndex">
+          <ng-container *ngIf="i < (match.playersJoined || 0); else availableSpot">
+            <div class="player-chip" [ngClass]="['chip-color-' + (i % 3)]">
+              <span class="player-avatar">{{ getPlayerInitial(i) }}</span>
+              <span class="player-name">{{ getPlayerName(i) }}</span>
+            </div>
+          </ng-container>
+          <ng-template #availableSpot>
+            <div class="player-chip available">Available</div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+    <div class="details-footer">
+      <button class="btn btn-primary join-btn">Join Match</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading-state">Loading match details...</div>

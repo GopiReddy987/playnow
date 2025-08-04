@@ -1,0 +1,179 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <div class="user-info" *ngIf="user">
+      <img [src]="user.avatar || '/assets/images/avatars/default-avatar.png'" alt="User Avatar" class="user-avatar">
+      <div class="user-details">
+        <h3>Welcome back, {{ user.name }}!</h3>
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading dashboard data...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !isLoading" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>Oops! Something went wrong</h3>
+    <p>{{ error }}</p>
+    <button class="btn btn-primary" (click)="retryLoad()">
+      Try Again
+    </button>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div *ngIf="!isLoading && !error" class="dashboard-content">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-info">
+          <h3>{{ totalBookings }}</h3>
+          <p>Total Bookings</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <h3>{{ confirmedBookings }}</h3>
+          <p>Confirmed</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+          <h3>₹{{ totalRevenue.toLocaleString() }}</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🏟️</div>
+        <div class="stat-info">
+          <h3>{{ upcomingMatches }}</h3>
+          <p>Upcoming Matches</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-info">
+          <h3>{{ activeRequests }}</h3>
+          <p>Active Requests</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions" *ngIf="!isAdmin">
+      <h2>Quick Actions</h2>
+      <div class="action-buttons">
+        <button class="action-btn" (click)="navigateTo('/book-turf')">
+          <span class="action-icon">🏟️</span>
+          <span>Book Turf</span>
+        </button>
+        <button class="action-btn" (click)="navigateTo('/join-game')">
+          <span class="action-icon">⚽</span>
+          <span>Join Game</span>
+        </button>
+        <button class="action-btn" (click)="navigateTo('/ground-booking')">
+          <span class="action-icon">📅</span>
+          <span>My Bookings</span>
+        </button>
+        <button class="action-btn" (click)="navigateTo('/payment')">
+          <span class="action-icon">💳</span>
+          <span>Payments</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity" *ngIf="!isAdmin">
+      <div class="activity-section">
+        <h2>Recent Bookings</h2>
+        <div class="activity-list">
+          <div *ngFor="let booking of recentBookings" class="activity-item">
+            <div class="activity-icon">📋</div>
+            <div class="activity-details">
+              <h4>{{ booking.turfName }}</h4>
+              <p>{{ formatDate(booking.bookingDate) }} at {{ formatTime(booking.startTime) }}</p>
+              <span class="status-badge" [style.background-color]="getStatusColor(booking.status)">
+                {{ booking.status }}
+              </span>
+            </div>
+            <div class="activity-amount">
+              ₹{{ booking.totalAmount }}
+            </div>
+          </div>
+          
+          <div *ngIf="recentBookings.length === 0" class="no-activity">
+            <p>No recent bookings</p>
+            <button class="btn btn-primary" (click)="navigateTo('/book-turf')">
+              Book Your First Turf
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-section">
+        <h2>Recent Matches</h2>
+        <div class="activity-list">
+          <div *ngFor="let match of recentMatches" class="activity-item">
+            <div class="activity-icon">⚽</div>
+            <div class="activity-details">
+              <h4>{{ match.title }}</h4>
+              <p>{{ formatDate(match.date) }} at {{ match.time }}</p>
+              <span class="status-badge" [style.background-color]="getStatusColor(match.status)">
+                {{ match.status }}
+              </span>
+            </div>
+            <div class="activity-amount">
+              ₹{{ match.pricePerPlayer }}
+            </div>
+          </div>
+          
+          <div *ngIf="recentMatches.length === 0" class="no-activity">
+            <p>No recent matches</p>
+            <button class="btn btn-primary" (click)="navigateTo('/join-game')">
+              Join a Match
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Bookings Table -->
+    <div *ngIf="!isLoading && !error && recentBookings.length > 0" class="booking-table-section">
+      <h2>Your Recent Bookings</h2>
+      <table class="booking-table">
+        <thead>
+          <tr>
+            <th>Venue</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of recentBookings">
+            <td>{{ booking.turfName }}</td>
+            <td>{{ formatDate(booking.bookingDate) }}</td>
+            <td>
+              <span class="status-badge" [ngClass]="{
+                'status-confirmed': booking.status === 'confirmed',
+                'status-pending': booking.status === 'pending',
+                'status-cancelled': booking.status === 'cancelled'
+              }">{{ booking.status | titlecase }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 

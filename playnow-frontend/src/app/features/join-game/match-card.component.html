@@ -1,0 +1,64 @@
+<div class="match-page-bg">
+  <!-- Filter/Search Section -->
+  <div class="filter-row">
+    <input class="filter-input" type="text" placeholder="Search matches..." [(ngModel)]="searchQuery">
+    <select class="filter-input" [(ngModel)]="selectedSport">
+      <option value="">All Sports</option>
+      <option value="Football">Football</option>
+      <option value="Cricket">Cricket</option>
+      <!-- Add more sports as needed -->
+    </select>
+    <select class="filter-input" [(ngModel)]="selectedDate">
+      <option value="">Any Date</option>
+      <option value="today">Today</option>
+      <option value="tomorrow">Tomorrow</option>
+      <option value="weekend">This Weekend</option>
+    </select>
+    <select class="filter-input" [(ngModel)]="selectedSkill">
+      <option value="">Any Skill</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+  </div>
+
+  <!-- Match Cards Grid -->
+  <div class="match-grid">
+    <div *ngFor="let match of matches" class="match-card">
+      <span class="status-badge" *ngIf="match.status === 'Open'">Open</span>
+      <h2 class="match-title">{{ match.title }}</h2>
+      <div class="match-detail-row">
+        <span class="match-label">Sport:</span>
+        <span class="match-value">{{ match.sport }}</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Date:</span>
+        <span class="match-value">{{ match.date }}</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Time:</span>
+        <span class="match-value">{{ match.time }}</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Venue:</span>
+        <span class="match-value">{{ match.venue }}</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Host:</span>
+        <span class="match-value">{{ match.host }} ⭐ {{ match.rating }}</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Price:</span>
+        <span class="match-value">₹{{ match.price }}/player</span>
+      </div>
+      <div class="match-detail-row">
+        <span class="match-label">Players:</span>
+        <span class="match-value">{{ match.playersJoined }}/{{ match.maxPlayers }}</span>
+      </div>
+      <div class="btn-group">
+        <button class="btn-join">Join Match</button>
+        <button class="btn-details">View Details</button>
+      </div>
+    </div>
+  </div>
+</div> 

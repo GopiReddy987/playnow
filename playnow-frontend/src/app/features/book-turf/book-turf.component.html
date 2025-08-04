@@ -1,0 +1,51 @@
+<div class="book-turf-container">
+  <h1>Book Turf</h1>
+  
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading turfs...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !isLoading" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>Oops! Something went wrong</h3>
+    <p>{{ error }}</p>
+    <button class="btn btn-primary" (click)="retryLoad()">
+      Try Again
+    </button>
+  </div>
+
+  <div class="filter-section">
+    <label for="sportFilter">Filter by Sport:</label>
+    <select id="sportFilter" [(ngModel)]="selectedSport" (change)="filterGrounds()">
+      <option value="">All Sports</option>
+      <option *ngFor="let sport of sports" [value]="sport">{{ sport }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="filteredGrounds.length === 0" class="no-grounds">
+    <p>No grounds available for the selected sport.</p>
+  </div>
+
+  <div class="recommend-section">
+    <h2>You might like:</h2>
+    <div class="recommend-grid">
+      <div class="recommend-card" *ngFor="let rec of recommendations">
+        <img [src]="rec.imageUrl" alt="{{ rec.name }}" class="recommend-img" />
+        <div class="recommend-info">
+          <h3>{{ rec.name }}</h3>
+          <div class="recommend-sport">{{ rec.icon }} {{ rec.sport }}</div>
+          <div class="recommend-distance">📍 {{ rec.distance }}</div>
+          <div class="recommend-rating">⭐ {{ rec.rating }} ({{ rec.reviews }} reviews)</div>
+        </div>
+        <button class="btn btn-outline">Book Now →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="get-started-wrapper">
+  <button class="get-started-btn">Get Started</button>
+</div> 

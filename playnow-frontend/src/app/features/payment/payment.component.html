@@ -1,0 +1,129 @@
+<div class="payment-container">
+  <div class="payment-card">
+    <!-- Payment Summary -->
+    <div class="header" *ngIf="!paymentSuccess">
+      <h1>Payment Summary</h1>
+      <p class="subtitle">Complete your booking to join the match</p>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-header" *ngIf="paymentSuccess">
+      <div class="success-icon">✓</div>
+      <h1>Payment Successful!</h1>
+      <p class="subtitle">You have successfully joined the match</p>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="payment-details" *ngIf="!paymentSuccess">
+      <!-- Match Information -->
+      <div class="detail-section">
+        <h3>Match Details</h3>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="label">Sport:</span>
+            <span class="value">{{ matchData.sport }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Ground:</span>
+            <span class="value">{{ matchData.ground }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Date:</span>
+            <span class="value">{{ matchData.date | date:'mediumDate' }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Time:</span>
+            <span class="value">{{ matchData.time }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Players:</span>
+            <span class="value">{{ matchData.players }}/{{ matchData.maxPlayers }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Information -->
+      <div class="detail-section" *ngIf="playerData">
+        <h3>Player Details</h3>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="label">Name:</span>
+            <span class="value">{{ playerData.name }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">WhatsApp:</span>
+            <span class="value">{{ playerData.whatsapp }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Role:</span>
+            <span class="value">{{ getRoleLabel(playerData.role) }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Batting Style:</span>
+            <span class="value">{{ getBattingStyleLabel(playerData.battingStyle) }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Bowling Style:</span>
+            <span class="value">{{ getBowlingStyleLabel(playerData.bowlingStyle) }} ({{ getBowlingHandLabel(playerData.bowlingHand) }})</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Experience:</span>
+            <span class="value">{{ playerData.experience }} years</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Position:</span>
+            <span class="value">{{ playerData.preferredPosition }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Spot Number:</span>
+            <span class="value">#{{ playerData.spotNumber }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Summary -->
+      <div class="payment-summary">
+        <div class="summary-item">
+          <span>Match Fee:</span>
+          <span>₹{{ matchData.price }}</span>
+        </div>
+        <div class="summary-item">
+          <span>Platform Fee:</span>
+          <span>₹50</span>
+        </div>
+        <div class="summary-item total">
+          <span>Total Amount:</span>
+          <span>₹{{ (matchData.price || 0) + 50 }}</span>
+        </div>
+      </div>
+
+      <!-- Payment Button -->
+      <div class="payment-actions">
+        <button 
+          class="pay-btn" 
+          (click)="processPayment()" 
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading">Pay ₹{{ (matchData.price || 0) + 50 }}</span>
+          <span *ngIf="isLoading">Processing Payment...</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Actions -->
+    <div class="success-actions" *ngIf="paymentSuccess">
+      <div class="success-message">
+        <p>Your payment has been processed successfully. You will receive a confirmation message on WhatsApp shortly.</p>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="btn-primary" (click)="goToMatch()">
+          View Match Details
+        </button>
+        <button class="btn-secondary" (click)="goToDashboard()">
+          Go to Dashboard
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-card">
+    <img src="assets/images/avatars/playnowlogo.png" alt="PlayNow Logo" class="logo" />
+    <h1 class="title">PlayNow</h1>
+    <p class="subtitle">Book your favorite activities instantly</p>
+    <h2 class="welcome">Welcome Back</h2>
+
+    <!-- Email/Password Login Form -->
+    <form [formGroup]="emailForm" (ngSubmit)="onEmailLogin()">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" required />
+      </div>
+      <div *ngIf="loginError" class="error">{{ loginError }}</div>
+      <button type="submit" [disabled]="emailForm.invalid">Login</button>
+    </form>
+
+    <div class="terms">
+      By continuing, you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+</div> 

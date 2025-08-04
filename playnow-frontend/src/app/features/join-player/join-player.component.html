@@ -1,0 +1,151 @@
+<div class="join-player-container">
+  <div class="form-card">
+    <div class="header">
+      <h1>Join Match</h1>
+      <p class="subtitle">Fill in your details to join spot #{{ spotNumber }}</p>
+    </div>
+
+    <form [formGroup]="joinForm" (ngSubmit)="onSubmit()" class="join-form">
+      <!-- Personal Information -->
+      <div class="form-section">
+        <h3>Personal Information</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              formControlName="name" 
+              placeholder="Enter your full name"
+              [class.error]="joinForm.get('name')?.invalid && joinForm.get('name')?.touched"
+            >
+            <div class="error-message" *ngIf="getErrorMessage('name')">
+              {{ getErrorMessage('name') }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp Number *</label>
+            <input 
+              type="tel" 
+              id="whatsapp" 
+              formControlName="whatsapp" 
+              placeholder="Enter 10-digit number"
+              [class.error]="joinForm.get('whatsapp')?.invalid && joinForm.get('whatsapp')?.touched"
+            >
+            <div class="error-message" *ngIf="getErrorMessage('whatsapp')">
+              {{ getErrorMessage('whatsapp') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cricket Skills -->
+      <div class="form-section">
+        <h3>Cricket Skills</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="battingStyle">Batting Style *</label>
+            <select 
+              id="battingStyle" 
+              formControlName="battingStyle"
+              [class.error]="joinForm.get('battingStyle')?.invalid && joinForm.get('battingStyle')?.touched"
+            >
+              <option *ngFor="let style of battingStyles" [value]="style.value">
+                {{ style.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Primary Role *</label>
+            <select 
+              id="role" 
+              formControlName="role"
+              [class.error]="joinForm.get('role')?.invalid && joinForm.get('role')?.touched"
+            >
+              <option *ngFor="let role of playerRoles" [value]="role.value">
+                {{ role.label }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bowlingStyle">Bowling Style *</label>
+            <select 
+              id="bowlingStyle" 
+              formControlName="bowlingStyle"
+              [class.error]="joinForm.get('bowlingStyle')?.invalid && joinForm.get('bowlingStyle')?.touched"
+            >
+              <option value="">Select bowling style</option>
+              <option *ngFor="let style of bowlingStyles" [value]="style.value">
+                {{ style.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bowlingHand">Bowling Hand *</label>
+            <select 
+              id="bowlingHand" 
+              formControlName="bowlingHand"
+              [class.error]="joinForm.get('bowlingHand')?.invalid && joinForm.get('bowlingHand')?.touched"
+            >
+              <option *ngFor="let hand of bowlingHands" [value]="hand.value">
+                {{ hand.label }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="experience">Years of Experience *</label>
+            <input 
+              type="number" 
+              id="experience" 
+              formControlName="experience" 
+              placeholder="0-50 years"
+              min="0" 
+              max="50"
+              [class.error]="joinForm.get('experience')?.invalid && joinForm.get('experience')?.touched"
+            >
+            <div class="error-message" *ngIf="getErrorMessage('experience')">
+              {{ getErrorMessage('experience') }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="preferredPosition">Preferred Position *</label>
+            <input 
+              type="text" 
+              id="preferredPosition" 
+              formControlName="preferredPosition" 
+              placeholder="e.g., Opening Batsman, Middle Order"
+              [class.error]="joinForm.get('preferredPosition')?.invalid && joinForm.get('preferredPosition')?.touched"
+            >
+            <div class="error-message" *ngIf="getErrorMessage('preferredPosition')">
+              {{ getErrorMessage('preferredPosition') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          class="submit-btn" 
+          [disabled]="joinForm.invalid || isLoading"
+        >
+          <span *ngIf="!isLoading">Join Match & Proceed to Payment</span>
+          <span *ngIf="isLoading">Processing...</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
